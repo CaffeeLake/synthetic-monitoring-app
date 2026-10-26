@@ -10,6 +10,9 @@ import { useFeatureFlag } from 'hooks/useFeatureFlag';
 
 import { FOLDERS_STALE_TIME } from './folders.constants';
 
+// Keep folder-derived filters stable while this query is disabled, pending, or failed.
+const EMPTY_CHILD_FOLDERS: GrafanaFolder[] = [];
+
 export interface CreateFolderPayload {
   title: string;
   parentUid?: string;
@@ -192,7 +195,7 @@ export function useAllFolders() {
   const { isEnabled: isFoldersEnabled } = useFeatureFlag(FeatureName.Folders);
   const { defaultFolder, defaultFolderUid, status: folderStatus } = useDefaultFolder(isFoldersEnabled);
   const {
-    data: childFolders = [],
+    data: childFolders = EMPTY_CHILD_FOLDERS,
     isLoading: isChildrenLoading,
     isError: isChildrenError,
   } = useFolderChildren(defaultFolderUid);

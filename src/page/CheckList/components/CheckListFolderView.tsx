@@ -16,7 +16,6 @@ import {
   FolderNode,
   getTotalCheckCount,
 } from 'hooks/useChecksByFolder';
-import { Feedback } from 'components/Feedback';
 import { CHECKS_PER_PAGE_CARD } from 'page/CheckList/CheckList.constants';
 import { CheckListItem } from 'page/CheckList/components/CheckListItem';
 import { FolderActionsMenu } from 'page/CheckList/components/FolderActionsMenu';
@@ -129,10 +128,7 @@ export function CheckListFolderView({
       ) : (
         <div className={styles.foldersSection}>
           <div className={styles.foldersSectionHeader} data-testid={CHECKS_TEST_ID.folderView.sectionHeader}>
-            <h3 className={styles.sectionTitle}>
-              Folders ({allUids.length})
-              <Feedback feature="folder-view" about={{ text: 'New feature!' }} />
-            </h3>
+            <h3 className={styles.sectionTitle}>Folders ({allUids.length})</h3>
             {/* The bulk actions take this row over while checks are selected,
                 so the expand toggle steps aside. */}
             {bulkActions ?? (

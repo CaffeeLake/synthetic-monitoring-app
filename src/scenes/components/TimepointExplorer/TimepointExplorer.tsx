@@ -5,7 +5,6 @@ import { css } from '@emotion/css';
 
 import { Check, FeatureName } from 'types';
 import { FeatureFlag } from 'components/FeatureFlag';
-import { Feedback } from 'components/Feedback';
 import { TIMEPOINT_EXPLORER_VIEW_OPTIONS } from 'scenes/components/TimepointExplorer/TimepointExplorer.constants';
 import {
   TimepointExplorerProvider,
@@ -46,13 +45,6 @@ const TimepointExplorerInternal = () => {
         <div className={styles.header}>
           <TimepointExplorerVisibleOverview />
           <div className={styles.actions}>
-            <Feedback
-              feature="timepoint-explorer"
-              about={{
-                text: `New feature!`,
-                link: `https://grafana.com/docs/grafana-cloud/testing/synthetic-monitoring/analyze-results/visualize-check-execution/`,
-              }}
-            />
             <div>
               <RadioButtonGroup
                 options={TIMEPOINT_EXPLORER_VIEW_OPTIONS}
